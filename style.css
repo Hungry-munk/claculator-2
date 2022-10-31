@@ -14,6 +14,7 @@ html {
 }
 
 body {
+    
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -27,16 +28,48 @@ h1 {
 
 /* buttons section */
 
-button-container {
+#calculator-container {
+    display: grid;
 
+    grid-template-columns: repeat(4,80px);
+    grid-template-rows: minmax(80px,auto) repeat(5,80px);/*  the first part is for the display*/
+    
 }
 
-button {
-    height: 60px;
-    width: 60px;
+#calculator-container button {
+    cursor: pointer;
+    font-size: 1.5rem;
+
 }
 
 /* end of buttons section */
+
+/* display section */
+
+.display-container {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+
+    word-wrap: break-word;
+    word-wrap: break-all;
+
+    padding: 10px; /* so word are not on  the corner*/
+}
+
+.display-container > .previous-operation {
+    font-size: 1rem;
+}
+
+.display-container > .current-operation {
+    font-size: 2rem;
+}
+
+
+/* end of display section */
 
 footer {
     margin-bottom: 10px;
