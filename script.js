@@ -1,8 +1,11 @@
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator')
+
 const eqaulButton = document.querySelector('.equal')
 const deleteButton = document.querySelector('.delete')
 const resetButton = document.querySelector('.reset')
+const decimalButton = document.querySelector('.decimal')
+const plusMinusButton = document. querySelector('.plus-minus')
 
 const previousOperation = document.querySelector('.previous-operation')
 const currentOperation = document.querySelector('.current-operation')
@@ -32,8 +35,6 @@ operatorButtons.forEach(button=>{
             return
         }
 
-
-
         equation.previousOperation = equation.currentOperation
         equation.operator = button.value
         equation.currentOperation = ''
@@ -41,16 +42,16 @@ operatorButtons.forEach(button=>{
         previousOperation.textContent = `${equation.previousOperation} ${equation.operator}`
         currentOperation.textContent = ""
 
-    })
-})
+    });
+});
 
 eqaulButton.addEventListener('click', event =>{
-    if (equation.currentOperation && equation.previousOperation){
+    if (equation.currentOperation && equation.previousOperation){//making sure both number have been selected
         calcualte()
         updateCalculationDisplay(event.target)
-    }
+    };
 
-})
+});
 
 resetButton.addEventListener('click', ()=>{
     equation.previousOperation = ''
@@ -67,6 +68,13 @@ deleteButton.addEventListener('click',()=>{
     currentOperation.textContent = equation.currentOperation 
 });
 
+plusMinusButton.addEventListener('click', ()=>{
+    equation.currentOperation = 
+        `${parseFloat(equation.currentOperation) * -1 }`
+    
+    currentOperation.textContent = equation.currentOperation
+})
+
 function updateCalculationDisplay(button) {
     if (button.value === "=") {
         console.log('worls')
@@ -82,7 +90,7 @@ function updateCalculationDisplay(button) {
         equation.previousOperation =equation.answer
         equation.currentOperation = ''
         currentOperation.textContent = equation.currentOperation
-    }
+    };
 };
 
 function calcualte() {
@@ -101,13 +109,13 @@ function calcualte() {
         case '^':
             answer = firstNumber ** secondNumber
             break
-        case 'X' :
+        case 'x' :
             answer = firstNumber * secondNumber
             break
         case '-':
             answer = firstNumber - secondNumber
             break;
-    }
+    };
 
     equation.answer = answer
-}
+};
