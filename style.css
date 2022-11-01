@@ -20,6 +20,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    background: linear-gradient(to right,#00AAFD,#8e4cbe );
 }
 
 h1 {
@@ -39,7 +41,11 @@ h1 {
 #calculator-container button {
     cursor: pointer;
     font-size: 1.5rem;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, .75);
+    outline: none;
 
+    
 }
 
 /* end of buttons section */
@@ -48,6 +54,7 @@ h1 {
 
 .display-container {
     grid-column: 1 / -1;
+    background-color: rgba(13, 6, 6, 0.75);
 
     display: flex;
     flex-direction: column;
@@ -62,10 +69,19 @@ h1 {
 
 .display-container > .previous-operation {
     font-size: 1rem;
+    color: rgba(255, 255, 255, .75);
+
+    word-wrap: break-word;
+    word-wrap: break-all;
+
 }
 
 .display-container > .current-operation {
     font-size: 2rem;
+    color: white;
+
+    word-wrap: break-word;
+    word-wrap: break-all;
 }
 
 
