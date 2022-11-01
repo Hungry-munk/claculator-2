@@ -45,7 +45,10 @@ h1 {
     background-color: rgba(255, 255, 255, .75);
     outline: none;
 
-    
+}
+
+#calculator-container > button:hover{
+    background-color: rgba(255, 255, 255, .9);
 }
 
 /* end of buttons section */
@@ -62,7 +65,7 @@ h1 {
     justify-content: space-around;
 
     word-wrap: break-word;
-    word-wrap: break-all;
+    word-break: break-all;
 
     padding: 10px; /* so word are not on  the corner*/
 }
