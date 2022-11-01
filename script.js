@@ -60,7 +60,12 @@ resetButton.addEventListener('click', ()=>{
 
     currentOperation.textContent = ''
     previousOperation.textContent = ''
-})
+});
+
+deleteButton.addEventListener('click',()=>{
+    equation.currentOperation = equation.currentOperation.slice(0,-1) 
+    currentOperation.textContent = equation.currentOperation 
+});
 
 function updateCalculationDisplay(button) {
     if (button.value === "=") {
@@ -74,9 +79,9 @@ function updateCalculationDisplay(button) {
         equation.operator = ""
     } else {
         previousOperation.textContent = `${equation.answer} ${equation.operator}`
-
+        currentOperation.textContent
     }
-}
+};
 
 function calcualte() {
     let firstNumber = parseFloat(equation.previousOperation)
