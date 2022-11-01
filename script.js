@@ -79,7 +79,9 @@ function updateCalculationDisplay(button) {
         equation.operator = ""
     } else {
         previousOperation.textContent = `${equation.answer} ${equation.operator}`
-        currentOperation.textContent
+        equation.previousOperation =equation.answer
+        equation.currentOperation = ''
+        currentOperation.textContent = equation.currentOperation
     }
 };
 
