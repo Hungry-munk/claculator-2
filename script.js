@@ -18,7 +18,7 @@ const equation = {
 };
 
 numberButtons.forEach(button => {
-    button.addEventListener('click', event =>{
+    button.addEventListener('click', () =>{
         if (button.value === "0" && !equation.currentOperation) return
         equation.currentOperation += button.value
         currentOperation.textContent = equation.currentOperation
@@ -69,6 +69,7 @@ deleteButton.addEventListener('click',()=>{
 });
 
 plusMinusButton.addEventListener('click', ()=>{
+    if (equation.currentOperation === "0.") return //avoid having a zero at the start of the number
     equation.currentOperation = 
         `${parseFloat(equation.currentOperation) * -1 }`;
     currentOperation.textContent = equation.currentOperation;
