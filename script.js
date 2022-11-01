@@ -1,29 +1,29 @@
 const numberButtons = document.querySelectorAll('.number');
-const operatorButtons = document.querySelectorAll('.operator')
+const operatorButtons = document.querySelectorAll('.operator');
 
-const eqaulButton = document.querySelector('.equal')
-const deleteButton = document.querySelector('.delete')
-const resetButton = document.querySelector('.reset')
-const decimalButton = document.querySelector('.decimal')
-const plusMinusButton = document. querySelector('.plus-minus')
+const eqaulButton = document.querySelector('.equal');
+const deleteButton = document.querySelector('.delete');
+const resetButton = document.querySelector('.reset');
+const decimalButton = document.querySelector('.decimal');
+const plusMinusButton = document. querySelector('.plus-minus');
 
-const previousOperation = document.querySelector('.previous-operation')
-const currentOperation = document.querySelector('.current-operation')
+const previousOperation = document.querySelector('.previous-operation');
+const currentOperation = document.querySelector('.current-operation');
 
 const equation = {
     currentOperation : '',
     previousOperation: '',
     operator : '',
     answer: ''
-}
+};
 
 numberButtons.forEach(button => {
     button.addEventListener('click', event =>{
         if (button.value === "0" && !equation.currentOperation) return
         equation.currentOperation += button.value
         currentOperation.textContent = equation.currentOperation
-    })
-})
+    });
+});
 
 operatorButtons.forEach(button=>{
     button.addEventListener('click', event=>{
@@ -70,10 +70,18 @@ deleteButton.addEventListener('click',()=>{
 
 plusMinusButton.addEventListener('click', ()=>{
     equation.currentOperation = 
-        `${parseFloat(equation.currentOperation) * -1 }`
-    
+        `${parseFloat(equation.currentOperation) * -1 }`;
+    currentOperation.textContent = equation.currentOperation;
+});
+
+decimalButton.addEventListener('click',()=>{
+    if (equation.currentOperation.includes('.') ) return
+    // adding a zero if their is no number to make it look nice
+    equation.currentOperation = equation.currentOperation ? 
+        equation.currentOperation + '.' : '0.'
+
     currentOperation.textContent = equation.currentOperation
-})
+});
 
 function updateCalculationDisplay(button) {
     if (button.value === "=") {
@@ -98,7 +106,6 @@ function calcualte() {
     let secondNumber = parseFloat(equation.currentOperation)
     let operator = equation.operator
     let answer;
-
     switch (operator) {
         case '+':
             answer = firstNumber + secondNumber
@@ -116,6 +123,5 @@ function calcualte() {
             answer = firstNumber - secondNumber
             break;
     };
-
     equation.answer = answer
 };
