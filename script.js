@@ -1,6 +1,8 @@
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator')
 const eqaulButton = document.querySelector('.equal')
+const deleteButton = document.querySelector('.delete')
+const resetButton = document.querySelector('.reset')
 
 const previousOperation = document.querySelector('.previous-operation')
 const currentOperation = document.querySelector('.current-operation')
@@ -48,6 +50,16 @@ eqaulButton.addEventListener('click', event =>{
         updateCalculationDisplay(event.target)
     }
 
+})
+
+resetButton.addEventListener('click', ()=>{
+    equation.previousOperation = ''
+    equation.currentOperation = ''
+    equation.answer = ''
+    equation.operator = ''
+
+    currentOperation.textContent = ''
+    previousOperation.textContent = ''
 })
 
 function updateCalculationDisplay(button) {
